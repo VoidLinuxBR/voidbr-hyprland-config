@@ -216,8 +216,8 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us",
-        kb_variant = "",
+        kb_layout  = "br",
+        kb_variant = "abnt2",
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
