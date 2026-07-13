@@ -16,10 +16,10 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
+    output   = "Virtual-1",
     mode     = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale    = "1.25",
 })
 
 
@@ -28,9 +28,10 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "foot"
+local terminal    = "xfce4-terminal"
 local fileManager = "thunar"
 local menu        = "hyprlauncher"
+local searchwofi  = "wofi --show drun"
 
 -------------------
 ---- AUTOSTART ----
@@ -42,9 +43,11 @@ local menu        = "hyprlauncher"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function ()
-   hl.exec_cmd(terminal)
+   h1.exec_cmd("hyprpaper")
+   hl.exec_cmd("waybar")
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("waybar & hyprpaper & firefox")
+--   hl.exec_cmd("waybar & hyprpaper & firefox")
+--   hl.exec_cmd(terminal)
 end)
 
 
@@ -260,6 +263,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(searchwofi))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
