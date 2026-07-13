@@ -5,6 +5,7 @@
     "spacing": 4,
 
     "modules-left": [
+        "custom/about",
         "sway/workspaces",
         "sway/mode"
     ],
@@ -40,6 +41,14 @@
         "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
         "on-click": "voidbr-hyprland-shortcuts"
     },
+
+    "custom/about": {
+        "format": " VoidBR",
+        "tooltip": true,
+        "tooltip-format": "Sobre o VoidBR e o sistema",
+        "on-click": "hyprsysteminfo"
+    },
+
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
