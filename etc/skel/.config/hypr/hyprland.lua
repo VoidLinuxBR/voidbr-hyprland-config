@@ -51,6 +51,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("wl-paste --type text --watch cliphist store")
    hl.exec_cmd("wl-paste --type image --watch cliphist store")
    hl.exec_cmd("hyprpaper --restore")
+   hl.exec_cmd("xdg-user-dirs-update")
 --   hl.exec_cmd(terminal)
 end)
 
