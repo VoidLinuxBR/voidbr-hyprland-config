@@ -1,3 +1,3 @@
-# voidbr-pkgfile-template
+# voidbr-hyprland-config
 
-Template for VoidBR pkgmake/pkgfile packages
+Skel config for VoidBR HYPRLAND Meta Package
