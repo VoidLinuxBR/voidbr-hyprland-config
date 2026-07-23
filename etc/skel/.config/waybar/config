@@ -103,7 +103,8 @@
     },
 
     "memory": {
-        "format": "{}% "
+        "format": "󰍛 {}% "
+        "on-click": "foot -e htop"
     },
 
     "pulseaudio": {
