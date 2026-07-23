@@ -32,7 +32,8 @@
 
   "custom/menu": {
     "format": "󰣇 ",
-    "tooltip": "Aplicativos",
+    "tooltip": true,
+    "tooltip-format": "Aplicativos",
     "on-click": "nwggrid"
   },
 
