@@ -9,7 +9,7 @@
   "modules-center": ["hyprland/window"],
 
   "modules-right": [
-    "custom/wallpaper",
+    "custom/menu",
     "custom/help",
     "pulseaudio",
     "cpu",
@@ -28,6 +28,19 @@
     "persistent-workspaces": {
       "*": 5
     }
+  },
+
+  "custom/menu": {
+    "format": "󰣇 ",
+    "tooltip": "Aplicativos",
+    "on-click": "nwggrid"
+  },
+
+  "custom/help": {
+    "format": "󰘥 ",
+    "tooltip": true,
+    "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
+    "on-click": "voidbr-hyprland-shortcuts"
   },
 
   "custom/wallpaper": {
@@ -67,13 +80,6 @@
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
     "format-alt": "{:%a %d-%m-%Y}"
-  },
-
-  "custom/help": {
-    "format": "󰘥 Help",
-    "tooltip": true,
-    "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
-    "on-click": "voidbr-hyprland-shortcuts"
   },
 
   "cpu": {
