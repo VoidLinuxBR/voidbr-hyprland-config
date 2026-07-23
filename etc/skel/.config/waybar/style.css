@@ -166,15 +166,25 @@ button:hover {
 }
 
 /* Hover effects */
+#custom-about:hover,
 #custom-wallpaper:hover,
+#custom-menu:hover,
+#custom-power:hover,
+#custom-help:hover,
 #pulseaudio:hover,
 #cpu:hover,
 #memory:hover,
+#battery:hover,
 #clock:hover,
-#tray:hover {
-	background: #303040;
+#network:hover,
+#tray:hover,
+#window:hover,
+#workspaces button:hover {
+    background: rgba(180, 30, 30, 0.7);
+    color: #ffffff;
+    border-color: #ff5555;
 }
 
 #custom-power:hover {
-    background: linear-gradient(to right, rgba(40, 20, 20, 1.0), rgba(250, 50, 50, 1.0));	
+  background: linear-gradient(to right, rgba(40, 20, 20, 1.0), rgba(250, 50, 50, 1.0)); 
 }
