@@ -1,48 +1,48 @@
+// -*- mode: jsonc -*-
 {
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "spacing": 4,
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "width": "auto", // Waybar width
+    "margin": 4,
+    //"spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
 
     "modules-left": [
-        "custom/about",
-        "hyprland/workspaces",
-        "hyprland/mode"
+      "custom/about",
+      "hyprland/workspaces"
     ],
 
-    "modules-center": [
-        "clock"
-    ],
+    "modules-center": [ "hyprland/window"  ],
 
     "modules-right": [
+    		"custom/wallpaper",
         "custom/help",
         "pulseaudio",
         "cpu",
         "memory",
         "battery",
+        "clock",
         "network",
+        "custom/power",
         "tray"
     ],
 
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}"
+    	"format": "{}",
+    	"on-scroll-up": "hyprctl dispatch workspace e+1",
+    	"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"persistent-workspaces": {
+		"*":5
+		}
     },
 
-    "clock": {
-         "format": " {:%d/%m/%Y   %H:%M}",
-         "tooltip-format": "{:%A, %d/%m/%Y}"
+    "custom/wallpaper": {
+		"format": " ",
+		"on-click": "/usr/local/bin/voidbr-change-wallpaper"
     },
 
-    "custom/help": {
-        "format": "󰘥 Help",
-        "tooltip": true,
-        "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
-        "on-click": "voidbr-hyprland-shortcuts"
-    },
-
-    "custom/about": {
+        "custom/about": {
         "format": " VoidBR",
         "tooltip": true,
         "tooltip-format": "Sobre o VoidBR e o sistema",
@@ -50,37 +50,11 @@
     },
 
 
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 Mutado",
-        "format-icons": {
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        },
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-        "tooltip": true
-    },
 
     "network": {
         "format-wifi": " {essid}",
         "format-ethernet": "󰈀 Ethernet",
         "format-disconnected": "󰖪 Offline"
-    },
-
-    "cpu": {
-        "format": " {usage}%",
-        "on-click": "foot -e cpufreq-bench"
-    },
-
-    "memory": {
-        "format": "󰍛 {}%",
-        "on-click": "foot -e htop"
     },
 
     "battery": {
@@ -107,7 +81,53 @@
     },
 
     "tray": {
-        "icon-size": 16,
-        "spacing": 8
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+    "clock": {
+        "timezone": "America/Sao_Paulo",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%a %d-%m-%Y}",
+    },
+
+    "custom/help": {
+        "format": "󰘥 Help",
+        "tooltip": true,
+        "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
+        "on-click": "voidbr-hyprland-shortcuts"
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+    },
+
+    "memory": {
+        "format": "{}% "
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}    {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "⏻",
+        "on-click": "nwg-bar"
+		}
     }
 }
