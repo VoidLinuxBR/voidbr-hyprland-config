@@ -34,6 +34,7 @@ local fileManager = "thunar"
 local menu        = "hyprlauncher"
 local searchwofi  = "wofi --show drun"
 local sh_firefox  = "firefox"
+local sh_brave    = "brave"
 
 -------------------
 ---- AUTOSTART ----
@@ -72,10 +73,9 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XDG_MENU_PREFIX", "voibr-")
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("QT_QPA_PLATFORM", "wayland:xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "qtwct")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-
 
 -----------------------
 ----- PERMISSIONS -----
@@ -281,6 +281,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(searchwofi))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(sh_brave))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(sh_firefox))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
