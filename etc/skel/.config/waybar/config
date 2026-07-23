@@ -58,7 +58,8 @@
   "network": {
     "format-wifi": " {essid}",
     "format-ethernet": "󰈀 Ethernet",
-    "format-disconnected": "󰖪 Offline"
+    "format-disconnected": "󰖪 Offline",
+    "on-click": "nm-connection-editor"
   },
 
   "battery": {
