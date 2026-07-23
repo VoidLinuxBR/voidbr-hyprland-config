@@ -6,8 +6,8 @@
 
     "modules-left": [
         "custom/about",
-        "sway/workspaces",
-        "sway/mode"
+        "hyprland/workspaces",
+        "hyprland/mode"
     ],
 
     "modules-center": [
@@ -24,7 +24,7 @@
         "tray"
     ],
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{name}"
