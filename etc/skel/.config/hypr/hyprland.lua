@@ -392,3 +392,13 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- Mata o pulseaudio ao encerrar a sessão do Hyprland.
+-- Necessário porque o pulseaudio é iniciado pelo plugin de volume do painel XFCE
+-- (que é carregado em cima do Hyprland) e faz double-fork, virando órfão do PID 1 —
+-- por isso escapa da limpeza automática de processos filhos que o Hyprland faz ao sair.
+-- Usa -x (nome exato) ao invés de -u $USER, pois $USER pode vir vazio no ambiente
+-- do exec_cmd, fazendo o pkill falhar silenciosamente.
+hl.on("hyprland.shutdown", function()
+    hl.dsp.exec_cmd("pkill -x pulseaudio")
+end)
