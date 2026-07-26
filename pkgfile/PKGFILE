@@ -12,6 +12,9 @@ source=("git+${url}.git")
 md5sums=('SKIP')
 makedepends=()
 depends=()
+backup=(
+	/etc/sddm.conf.d/wayland.conf
+)
 
 package() {
 	cd "${srcdir}/${pkgname}"
@@ -37,14 +40,15 @@ package() {
 	[ -f "README.md" ] && install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
 }
 
-
 pre_install() {
-  log "Iniciando instalação"
+	log "Iniciando instalação"
 }
 
 post_install() {
-  log "Finalizando instalação"
-  tee /etc/sddm.conf.d/wayland.conf > /dev/null << 'EOF'
+	log "Finalizando instalação"
+
+	mkdir -p /etc/sddm.conf.d/
+	tee /etc/sddm.conf.d/wayland.conf >/dev/null <<'EOF'
 [General]
 #CompositorCommand=weston --shell=kiosk
 DisplayServer=wayland
@@ -52,16 +56,16 @@ EOF
 }
 
 pre_upgrade() {
-  log "Iniciando upgrade"
+	log "Iniciando upgrade"
 }
 
 post_upgrade() {
-  log "Finalizando upgrade"
-  tee /etc/sddm.conf.d/wayland.conf > /dev/null << 'EOF'
+	log "Finalizando upgrade"
+
+	mkdir -p /etc/sddm.conf.d/
+	tee /etc/sddm.conf.d/wayland.conf >/dev/null <<'EOF'
 [General]
 #CompositorCommand=weston --shell=kiosk
 DisplayServer=wayland
 EOF
 }
-
-
