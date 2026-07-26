@@ -44,6 +44,11 @@ pre_install() {
 
 post_install() {
   log "Finalizando instalação"
+  tee /etc/sddm.conf.d/wayland.conf > /dev/null << 'EOF'
+[General]
+#CompositorCommand=weston --shell=kiosk
+DisplayServer=wayland
+EOF
 }
 
 pre_upgrade() {
@@ -52,6 +57,11 @@ pre_upgrade() {
 
 post_upgrade() {
   log "Finalizando upgrade"
+  tee /etc/sddm.conf.d/wayland.conf > /dev/null << 'EOF'
+[General]
+#CompositorCommand=weston --shell=kiosk
+DisplayServer=wayland
+EOF
 }
 
 
