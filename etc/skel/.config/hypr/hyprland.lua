@@ -56,7 +56,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("hyprpaper")
    hl.exec_cmd("xdg-user-dirs-update")
    hl.exec_cmd("/usr/local/bin/voidbr-change-wallpaper &")
-hl.exec_cmd(terminal)
+-- hl.exec_cmd(terminal)
 end)
 
 
