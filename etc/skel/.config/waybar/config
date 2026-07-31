@@ -31,14 +31,14 @@
   },
 
   "custom/menu": {
-    "format": "󰣇 ",
+    "format": " 󰣇 ",
     "tooltip": true,
     "tooltip-format": "Aplicativos",
     "on-click": "nwggrid"
   },
 
   "custom/help": {
-    "format": "󰘥 ",
+    "format": " 󰘥 ",
     "tooltip": true,
     "tooltip-format": "VoidBR Hyprland Shortcuts\nClique ou pressione Super+F1",
     "on-click": "voidbr-hyprland-shortcuts"
