@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DIR="/usr/share/backgrounds/voidbr/"
+
+while :; do
+    img=$(find "$DIR" -type f \( \
+        -iname "*.jpg" -o \
+        -iname "*.jpeg" -o \
+        -iname "*.png" -o \
+        -iname "*.avif" -o \
+        -iname "*.heic" -o \
+        -iname "*.webp" \) | shuf -n1)
+
+    hyprctl hyprpaper wallpaper ",$img"
+
+    sleep 60
+done
