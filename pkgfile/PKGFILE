@@ -13,9 +13,7 @@ source=("git+${url}.git")
 md5sums=('SKIP')
 makedepends=()
 depends=()
-backup=(
-	/etc/sddm.conf.d/wayland.conf
-)
+backup=()
 
 package() {
   # Verify default folder
@@ -55,12 +53,8 @@ post_install() {
     log "Finalizando instalação"
   fi
 
-	mkdir -p /etc/sddm.conf.d/
-	tee /etc/sddm.conf.d/wayland.conf >/dev/null <<'EOF'
-[General]
-#CompositorCommand=weston --shell=kiosk
-DisplayServer=wayland
-EOF
+	# O /etc/sddm.conf.d/wayland.conf (greeter do SDDM em Wayland, compositor
+	# sway) é do voidbr-sddm-themes; este pacote não mexe mais nele.
 }
 
 pre_upgrade() {
